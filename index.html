@@ -2,884 +2,374 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Aadya Bawaskar | Portfolio</title>
-
     <style>
-
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial, sans-serif;
-        }
-
-        body{
-            background:#0f172a;
-            color:white;
-        }
-
-        nav{
-            width:100%;
-            padding:20px 10%;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            background:#111827;
-            position:fixed;
-            top:0;
-            z-index:100;
-        }
-
-        nav h1{
-            color:#38bdf8;
-        }
-
-        nav ul{
-            display:flex;
-            list-style:none;
-            gap:25px;
-        }
-
-        nav ul li a{
-            color:white;
-            text-decoration:none;
-        }
-
-        .hero{
-            min-height:100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            text-align:center;
-            padding:120px 10%;
-            flex-direction:column;
-        }
-
-        .hero img{
-            width:220px;
-            height:220px;
-            border-radius:50%;
-            object-fit:cover;
-            border:5px solid #38bdf8;
-            margin-bottom:30px;
-        }
-
-        .hero h2{
-            font-size:60px;
-            margin-bottom:20px;
-        }
-
-        .hero h2 span{
-            color:#38bdf8;
-        }
-
-        .hero p{
-            max-width:700px;
-            font-size:20px;
-            line-height:1.8;
-            color:#cbd5e1;
-        }
-
-        .btn{
-            margin-top:30px;
-            padding:15px 35px;
-            background:#38bdf8;
-            border:none;
-            border-radius:40px;
-            font-size:18px;
-            cursor:pointer;
-            transition:0.3s;
-        }
-
-        .btn:hover{
-            transform:scale(1.05);
-        }
-
-        section{
-            padding:100px 10%;
-        }
-
-        .title{
-            font-size:40px;
-            color:#38bdf8;
-            margin-bottom:30px;
-            text-align:center;
-        }
-
-        .cards{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:25px;
-        }
-
-        .card{
-            background:#1e293b;
-            padding:30px;
-            border-radius:20px;
-            transition:0.3s;
-        }
-
-        .card:hover{
-            transform:translateY(-10px);
-        }
-
-        .card h3{
-            margin-bottom:15px;
-            color:#38bdf8;
-        }
-
-        .card p{
-            color:#cbd5e1;
-            line-height:1.7;
-        }
-
-        /* ── Masonry Gallery ── */
-        .gallery-section{
-            padding: 100px 10%;
-        }
-
-        .gallery-header{
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .gallery-header .title{
-            margin-bottom: 10px;
-        }
-
-        .gallery-tag{
-            display: inline-block;
-            background: rgba(56,189,248,0.12);
-            color: #38bdf8;
-            font-size: 13px;
-            font-weight: 700;
-            padding: 6px 18px;
-            border-radius: 30px;
-            border: 1px solid rgba(56,189,248,0.3);
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .gallery-subtitle{
-            color: #94a3b8;
-            font-size: 17px;
-            margin-top: 8px;
-        }
-
-        .masonry{
-            columns: 3;
-            column-gap: 16px;
-        }
-
-        .masonry-item{
-            break-inside: avoid;
-            margin-bottom: 16px;
-            border-radius: 18px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .masonry-item:nth-child(3n+1){ transform: rotate(0.3deg); }
-        .masonry-item:nth-child(3n+2){ transform: rotate(-0.3deg); }
-        .masonry-item:nth-child(3n+3){ transform: rotate(0.2deg); }
-
-        .masonry-item img{
-            width: 100%;
-            display: block;
-            border-radius: 18px;
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .masonry-item:hover{
-            transform: rotate(0deg) scale(1.02) !important;
-            z-index: 10;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-        }
-
-        .masonry-item:hover img{
-            transform: scale(1.08);
-        }
-
-        .photo-overlay{
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(0deg, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 50%, transparent 100%);
-            border-radius: 18px;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 18px;
-        }
-
-        .masonry-item:hover .photo-overlay{
-            opacity: 1;
-        }
-
-        .photo-label{
-            color: #fff;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .photo-label-sub{
-            color: #94a3b8;
-            font-size: 12px;
-            margin-top: 3px;
-        }
-
-        #college-life{
-            background: linear-gradient(180deg, #0f172a 0%, #1a1033 100%);
-        }
-
-        #travel-diaries{
-            background: linear-gradient(180deg, #0c1a2e 0%, #0f172a 100%);
-        }
-
-        .section-divider{
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, #38bdf8, #818cf8);
-            border-radius: 2px;
-            margin: 16px auto 0;
-        }
-
-        .photo-count-badge{
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(129,140,248,0.12);
-            color: #818cf8;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 5px 14px;
-            border-radius: 30px;
-            border: 1px solid rgba(129,140,248,0.25);
-            margin-top: 14px;
-        }
-
-        @media(max-width: 768px){
-            .masonry{ columns: 2; }
-        }
-
-        @media(max-width: 480px){
-            .masonry{ columns: 1; }
-        }
-
-        /* ── Certificates Section ── */
-        #certificates{
-            background:#0f172a;
-        }
-
-        .cert-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-            gap:30px;
-            justify-items:center;
-        }
-
-        .cert-card{
-            background:#1e293b;
-            border-radius:20px;
-            padding:30px;
-            max-width:480px;
-            width:100%;
-            transition:0.3s;
-            border:1px solid #334155;
-            position:relative;
-            overflow:hidden;
-        }
-
-        .cert-card::before{
-            content:'';
-            position:absolute;
-            top:0; left:0;
-            width:5px; height:100%;
-            background:linear-gradient(180deg,#38bdf8,#818cf8);
-            border-radius:5px 0 0 5px;
-        }
-
-        .cert-card:hover{
-            transform:translateY(-8px);
-            border-color:#38bdf8;
-            box-shadow:0 20px 40px rgba(56,189,248,0.15);
-        }
-
-        .cert-issuer{
-            display:flex;
-            align-items:center;
-            gap:10px;
-            margin-bottom:18px;
-        }
-
-        .cert-issuer-logo{
-            width:38px;
-            height:38px;
-            background:#fff;
-            border-radius:8px;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-weight:800;
-            font-size:13px;
-            color:#a435f0;
-            letter-spacing:-0.5px;
-            flex-shrink:0;
-        }
-
-        .cert-issuer-name{
-            font-size:14px;
-            color:#94a3b8;
-            font-weight:600;
-            text-transform:uppercase;
-            letter-spacing:1px;
-        }
-
-        .cert-badge{
-            display:inline-block;
-            background:rgba(56,189,248,0.12);
-            color:#38bdf8;
-            font-size:12px;
-            font-weight:700;
-            padding:4px 12px;
-            border-radius:20px;
-            margin-bottom:14px;
-            border:1px solid rgba(56,189,248,0.3);
-            text-transform:uppercase;
-            letter-spacing:1px;
-        }
-
-        .cert-title{
-            font-size:20px;
-            font-weight:700;
-            color:#f1f5f9;
-            margin-bottom:12px;
-            line-height:1.4;
-        }
-
-        .cert-meta{
-            display:flex;
-            flex-wrap:wrap;
-            gap:16px;
-            margin-top:18px;
-            padding-top:18px;
-            border-top:1px solid #334155;
-        }
-
-        .cert-meta-item{
-            display:flex;
-            flex-direction:column;
-            gap:3px;
-        }
-
-        .cert-meta-label{
-            font-size:11px;
-            color:#64748b;
-            text-transform:uppercase;
-            letter-spacing:0.8px;
-        }
-
-        .cert-meta-value{
-            font-size:14px;
-            color:#cbd5e1;
-            font-weight:600;
-        }
-
-        .cert-link{
-            display:inline-flex;
-            align-items:center;
-            gap:6px;
-            margin-top:18px;
-            color:#38bdf8;
-            font-size:13px;
-            font-weight:600;
-            text-decoration:none;
-            transition:gap 0.2s;
-        }
-
-        .cert-link:hover{
-            gap:10px;
-        }
-
-        .cert-link svg{
-            width:14px; height:14px;
-            stroke:#38bdf8;
-            fill:none;
-            stroke-width:2;
-            stroke-linecap:round;
-            stroke-linejoin:round;
-        }
-
-        footer{
-            text-align:center;
-            padding:30px;
-            background:#111827;
-            color:#94a3b8;
-        }
-
+        :root{--bg:#0f172a;--bg2:#111827;--bg3:#1e293b;--text:#ffffff;--text2:#cbd5e1;--text3:#94a3b8;--accent:#38bdf8;--accent2:#818cf8;}
+        body.light{--bg:#f0f9ff;--bg2:#e0f2fe;--bg3:#bae6fd;--text:#0f172a;--text2:#1e293b;--text3:#475569;--accent:#0284c7;--accent2:#6366f1;}
+        *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;scroll-behavior:smooth;}
+        body{background:var(--bg);color:var(--text);transition:background 0.4s,color 0.4s;}
+        nav{width:100%;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;background:var(--bg2);position:fixed;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,0.3);}
+        nav h1{color:var(--accent);font-size:22px;}
+        nav ul{display:flex;list-style:none;gap:18px;align-items:center;flex-wrap:wrap;}
+        nav ul li a{color:var(--text);text-decoration:none;font-size:14px;transition:color 0.3s;}
+        nav ul li a:hover{color:var(--accent);}
+        .theme-btn{background:var(--bg3);border:1px solid var(--accent);color:var(--accent);padding:6px 14px;border-radius:20px;cursor:pointer;font-size:13px;transition:0.3s;}
+        .theme-btn:hover{background:var(--accent);color:#fff;}
+        .hero{min-height:100vh;display:flex;justify-content:center;align-items:center;text-align:center;padding:120px 10% 80px;flex-direction:column;background:radial-gradient(ellipse at center top,rgba(56,189,248,0.08) 0%,transparent 70%);}
+        .hero img{width:220px;height:220px;border-radius:50%;object-fit:cover;border:5px solid var(--accent);margin-bottom:30px;box-shadow:0 0 40px rgba(56,189,248,0.3);animation:float 4s ease-in-out infinite;}
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+        .hero h2{font-size:54px;margin-bottom:20px;}
+        .hero h2 span{color:var(--accent);}
+        .typing-text{color:var(--accent2);font-size:22px;margin-bottom:16px;min-height:32px;}
+        .hero p{max-width:700px;font-size:18px;line-height:1.8;color:var(--text2);}
+        .btn{margin-top:30px;padding:14px 35px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;border-radius:40px;font-size:17px;cursor:pointer;transition:0.3s;color:#fff;font-weight:700;}
+        .btn:hover{transform:scale(1.05);box-shadow:0 10px 30px rgba(56,189,248,0.4);}
+        section{padding:90px 10%;}
+        .title{font-size:38px;color:var(--accent);margin-bottom:12px;text-align:center;}
+        .sec-divider{width:60px;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;margin:0 auto 40px;}
+        .sec-subtitle{text-align:center;color:var(--text3);font-size:16px;margin-bottom:40px;margin-top:-30px;}
+        .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
+        .card{background:var(--bg3);padding:30px;border-radius:20px;transition:0.3s;border:1px solid transparent;}
+        .card:hover{transform:translateY(-10px);border-color:var(--accent);box-shadow:0 20px 40px rgba(56,189,248,0.1);}
+        .card h3{margin-bottom:12px;color:var(--accent);font-size:20px;}
+        .card p{color:var(--text2);line-height:1.7;}
+        #skills{background:var(--bg2);}
+        .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;}
+        .skill-card{background:var(--bg3);border-radius:18px;padding:28px;border:1px solid transparent;transition:0.3s;}
+        .skill-card:hover{border-color:var(--accent);transform:translateY(-6px);}
+        .skill-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+        .skill-name{display:flex;align-items:center;gap:12px;font-size:17px;font-weight:700;color:var(--text);}
+        .skill-icon{font-size:28px;}
+        .skill-pct{color:var(--accent);font-size:15px;font-weight:700;}
+        .skill-bar{height:10px;background:rgba(56,189,248,0.15);border-radius:10px;overflow:hidden;}
+        .skill-fill{height:100%;border-radius:10px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 1.2s cubic-bezier(0.25,0.46,0.45,0.94);}
+        .skill-desc{margin-top:10px;font-size:13px;color:var(--text3);}
+        #hobbies{background:var(--bg);}
+        .hobbies-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;}
+        .hobby-card{background:var(--bg3);border-radius:20px;padding:30px;border:1px solid transparent;transition:0.4s;position:relative;overflow:hidden;}
+        .hobby-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+        .hobby-card:hover{transform:translateY(-8px);border-color:var(--accent2);box-shadow:0 20px 40px rgba(129,140,248,0.15);}
+        .hobby-icon{font-size:42px;margin-bottom:16px;display:block;}
+        .hobby-card h3{color:var(--accent);font-size:20px;margin-bottom:10px;}
+        .hobby-card p{color:var(--text2);line-height:1.7;font-size:15px;}
+        .hobby-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+        .hobby-tag{background:rgba(56,189,248,0.1);color:var(--accent);font-size:12px;padding:4px 12px;border-radius:20px;border:1px solid rgba(56,189,248,0.25);font-weight:600;}
+        #goals{background:var(--bg2);}
+        .goals-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
+        .goal-card{background:var(--bg3);border-radius:20px;padding:30px;border:1px solid transparent;transition:0.3s;display:flex;gap:18px;align-items:flex-start;}
+        .goal-card:hover{border-color:var(--accent2);transform:translateY(-6px);}
+        .goal-num{min-width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;flex-shrink:0;}
+        .goal-content h3{color:var(--accent);font-size:17px;margin-bottom:8px;}
+        .goal-content p{color:var(--text2);font-size:14px;line-height:1.7;}
+        .gallery-section{padding:90px 10%;}
+        .gallery-header{text-align:center;margin-bottom:50px;}
+        .gallery-header .title{margin-bottom:10px;}
+        .gallery-tag{display:inline-block;background:rgba(56,189,248,0.12);color:var(--accent);font-size:13px;font-weight:700;padding:6px 18px;border-radius:30px;border:1px solid rgba(56,189,248,0.3);margin-bottom:16px;text-transform:uppercase;letter-spacing:1.5px;}
+        .gallery-subtitle{color:var(--text3);font-size:17px;margin-top:8px;}
+        .masonry{columns:3;column-gap:16px;}
+        .masonry-item{break-inside:avoid;margin-bottom:16px;border-radius:18px;overflow:hidden;position:relative;cursor:pointer;}
+        .masonry-item:nth-child(3n+1){transform:rotate(0.3deg);}
+        .masonry-item:nth-child(3n+2){transform:rotate(-0.3deg);}
+        .masonry-item:nth-child(3n+3){transform:rotate(0.2deg);}
+        .masonry-item img{width:100%;display:block;border-radius:18px;transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);}
+        .masonry-item:hover{transform:rotate(0deg) scale(1.02) !important;z-index:10;box-shadow:0 25px 50px rgba(0,0,0,0.5);}
+        .masonry-item:hover img{transform:scale(1.08);}
+        .photo-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,23,42,0.85) 0%,rgba(15,23,42,0.1) 50%,transparent 100%);border-radius:18px;opacity:0;transition:opacity 0.4s ease;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;}
+        .masonry-item:hover .photo-overlay{opacity:1;}
+        .photo-label{color:#fff;font-size:14px;font-weight:700;letter-spacing:0.5px;}
+        .photo-label-sub{color:#94a3b8;font-size:12px;margin-top:3px;}
+        #college-life{background:linear-gradient(180deg,var(--bg) 0%,#1a1033 100%);}
+        #travel-diaries{background:linear-gradient(180deg,#0c1a2e 0%,var(--bg) 100%);}
+        .section-divider{width:60px;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;margin:16px auto 0;}
+        .photo-count-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(129,140,248,0.12);color:var(--accent2);font-size:12px;font-weight:700;padding:5px 14px;border-radius:30px;border:1px solid rgba(129,140,248,0.25);margin-top:14px;}
+        #certificates{background:var(--bg);}
+        .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;justify-items:center;}
+        .cert-card{background:var(--bg3);border-radius:20px;padding:30px;max-width:480px;width:100%;transition:0.3s;border:1px solid #334155;position:relative;overflow:hidden;}
+        .cert-card::before{content:'';position:absolute;top:0;left:0;width:5px;height:100%;background:linear-gradient(180deg,var(--accent),var(--accent2));border-radius:5px 0 0 5px;}
+        .cert-card:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:0 20px 40px rgba(56,189,248,0.15);}
+        .cert-issuer{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+        .cert-issuer-logo{width:38px;height:38px;background:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#a435f0;flex-shrink:0;}
+        .cert-issuer-name{font-size:14px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+        .cert-badge{display:inline-block;background:rgba(56,189,248,0.12);color:var(--accent);font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:14px;border:1px solid rgba(56,189,248,0.3);text-transform:uppercase;letter-spacing:1px;}
+        .cert-title{font-size:20px;font-weight:700;color:var(--text);margin-bottom:12px;line-height:1.4;}
+        .cert-meta{display:flex;flex-wrap:wrap;gap:16px;margin-top:18px;padding-top:18px;border-top:1px solid #334155;}
+        .cert-meta-item{display:flex;flex-direction:column;gap:3px;}
+        .cert-meta-label{font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:0.8px;}
+        .cert-meta-value{font-size:14px;color:var(--text2);font-weight:600;}
+        .cert-link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;color:var(--accent);font-size:13px;font-weight:600;text-decoration:none;transition:gap 0.2s;}
+        .cert-link:hover{gap:10px;}
+        .cert-link svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+        #contact{background:var(--bg2);}
+        .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:900px;margin:0 auto;}
+        .contact-card{background:var(--bg3);border-radius:18px;padding:28px;text-align:center;border:1px solid transparent;transition:0.3s;}
+        .contact-card:hover{border-color:var(--accent);transform:translateY(-6px);}
+        .contact-icon{font-size:36px;margin-bottom:12px;display:block;}
+        .contact-card h3{color:var(--accent);font-size:16px;margin-bottom:6px;}
+        .contact-card a{color:var(--text2);text-decoration:none;font-size:14px;}
+        .contact-card a:hover{color:var(--accent);}
+        .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.7s ease,transform 0.7s ease;}
+        .reveal.visible{opacity:1;transform:translateY(0);}
+        #back-top{position:fixed;bottom:30px;right:30px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:22px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:opacity 0.3s,transform 0.3s;box-shadow:0 8px 20px rgba(56,189,248,0.4);z-index:999;}
+        #back-top.show{opacity:1;transform:translateY(0);}
+        #back-top:hover{transform:scale(1.1);}
+        footer{text-align:center;padding:30px;background:var(--bg2);color:var(--text3);}
+        @media(max-width:768px){.hero h2{font-size:36px;}.title{font-size:28px;}.masonry{columns:2;}}
+        @media(max-width:480px){.masonry{columns:1;}nav ul{gap:8px;}nav ul li a{font-size:12px;}}
     </style>
-
 </head>
 
 <body>
 
     <nav>
-
         <h1>Portfolio</h1>
-
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#goals">Goals</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#college-life">College Life</a></li>
-            <li><a href="#travel-diaries">Travel Diaries</a></li>
+            <li><a href="#travel-diaries">Travels</a></li>
             <li><a href="#certificates">Certificates</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button class="theme-btn" onclick="toggleTheme()">☀️ Light</button></li>
         </ul>
-
     </nav>
 
     <div class="hero">
-
-        <img src="profile.jpg">
-
+        <img src="profile.jpg" alt="Aadya Bawaskar">
         <h2>Hello, I'm <span>Aadya Bawaskar</span></h2>
-
-        <p>
-            I'm passionate about creativity, technology, leadership,
-            learning new skills and building projects that describe who I am
-            beyond academics.
-        </p>
-
-        <button class="btn">
-            Explore My Portfolio
-        </button>
-
+        <div class="typing-text" id="typing"></div>
+        <p>I'm passionate about creativity, technology, leadership, learning new skills and building projects that describe who I am beyond academics.</p>
+        <button class="btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Explore My Portfolio</button>
     </div>
 
-    <section>
-
-        <h2 class="title">About Me</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>Creative</h3>
-
-                <p>
-                    I enjoy designing, creating and expressing ideas through  projects.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Leadership</h3>
-
-                <p>
-                    I actively participate in teamwork, events and communication activities.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Technology</h3>
-
-                <p>
-                    I love coding, innovation and learning new technologies.
-                </p>
-            </div>
-
+    <section id="about">
+        <h2 class="title reveal">About Me</h2>
+        <div class="sec-divider reveal"></div>
+        <div class="cards reveal">
+            <div class="card"><h3>🎨 Creative</h3><p>I enjoy designing, creating and expressing ideas through projects.</p></div>
+            <div class="card"><h3>🌟 Leadership</h3><p>I actively participate in teamwork, events and communication activities.</p></div>
+            <div class="card"><h3>💻 Technology</h3><p>I love coding, innovation and learning new technologies.</p></div>
         </div>
+    </section>
 
+    <section id="skills">
+        <h2 class="title reveal">My Skills</h2>
+        <div class="sec-divider reveal"></div>
+        <p class="sec-subtitle reveal">Technologies I work with 🛠️</p>
+        <div class="skills-grid reveal">
+            <div class="skill-card">
+                <div class="skill-top"><div class="skill-name"><span class="skill-icon">🌐</span> HTML</div><span class="skill-pct">85%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                <p class="skill-desc">Building structured, semantic web pages and layouts.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-top"><div class="skill-name"><span class="skill-icon">🎨</span> CSS</div><span class="skill-pct">80%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                <p class="skill-desc">Styling, animations, responsive design and layouts.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-top"><div class="skill-name"><span class="skill-icon">🐍</span> Python</div><span class="skill-pct">70%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+                <p class="skill-desc">Programming logic, problem solving and scripting.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-top"><div class="skill-name"><span class="skill-icon">⚙️</span> C Language</div><span class="skill-pct">65%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+                <p class="skill-desc">Fundamentals of programming, memory and logic building.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="hobbies">
+        <h2 class="title reveal">Hobbies & Interests</h2>
+        <div class="sec-divider reveal"></div>
+        <p class="sec-subtitle reveal">Things that make me, me 💫</p>
+        <div class="hobbies-grid reveal">
+            <div class="hobby-card">
+                <span class="hobby-icon">📚</span>
+                <h3>Reading Books</h3>
+                <p>Books are my escape into another world. I love getting lost in stories that inspire and challenge me.</p>
+                <div class="hobby-tags"><span class="hobby-tag">Harry Potter Series</span><span class="hobby-tag">Chetan Bhagat</span><span class="hobby-tag">Fiction</span></div>
+            </div>
+            <div class="hobby-card">
+                <span class="hobby-icon">💃</span>
+                <h3>Dancing</h3>
+                <p>A trained Bharatnatyam dancer with a deep love for classical Indian dance forms and stage performances.</p>
+                <div class="hobby-tags"><span class="hobby-tag">Bharatnatyam</span><span class="hobby-tag">Trained Dancer</span><span class="hobby-tag">Stage Performer</span></div>
+            </div>
+            <div class="hobby-card">
+                <span class="hobby-icon">🎵</span>
+                <h3>Listening to Songs</h3>
+                <p>Music is my mood, my motivation and my companion. I have a carefully curated Spotify playlist for every moment.</p>
+                <div class="hobby-tags"><span class="hobby-tag">Spotify</span><span class="hobby-tag">All Genres</span><span class="hobby-tag">Music Lover</span></div>
+            </div>
+            <div class="hobby-card">
+                <span class="hobby-icon">🎬</span>
+                <h3>Watching Movies</h3>
+                <p>From Bollywood rom-coms to Marvel epics and South Indian blockbusters — I love a great cinematic experience.</p>
+                <div class="hobby-tags"><span class="hobby-tag">YJHD</span><span class="hobby-tag">Hi Papa</span><span class="hobby-tag">South Movies</span><span class="hobby-tag">Marvel</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="goals">
+        <h2 class="title reveal">My Goals</h2>
+        <div class="sec-divider reveal"></div>
+        <p class="sec-subtitle reveal">Where I'm headed 🚀</p>
+        <div class="goals-grid reveal">
+            <div class="goal-card"><div class="goal-num">1</div><div class="goal-content"><h3>Master Full-Stack Development</h3><p>Build complete, production-ready web applications using modern technologies and frameworks.</p></div></div>
+            <div class="goal-card"><div class="goal-num">2</div><div class="goal-content"><h3>Pursue Higher Education</h3><p>Pursue a postgraduate degree in Computer Science or a related field from a top institution.</p></div></div>
+            <div class="goal-card"><div class="goal-num">3</div><div class="goal-content"><h3>Build My Own Startup</h3><p>Turn my ideas into a real product that solves problems and creates value for people around me.</p></div></div>
+            <div class="goal-card"><div class="goal-num">4</div><div class="goal-content"><h3>Inspire Through Leadership</h3><p>Take on leadership roles, mentor others and contribute meaningfully to my community.</p></div></div>
+            <div class="goal-card"><div class="goal-num">5</div><div class="goal-content"><h3>Continue Classical Dance</h3><p>Keep growing as a Bharatnatyam dancer and perform on bigger stages while preserving this art form.</p></div></div>
+            <div class="goal-card"><div class="goal-num">6</div><div class="goal-content"><h3>Travel & Explore the World</h3><p>Visit new places, experience diverse cultures and collect memories that shape who I am.</p></div></div>
+        </div>
     </section>
 
     <section id="projects">
-
-        <h2 class="title">My Projects</h2>
-
-        <div class="cards">
-
-            <div class="card">
-
-                <img src="bag-sketch.jpeg" width="100%" style="border-radius:15px; margin-bottom:20px;">
-
-                <h3>Smart Utility Multipurpose Bag</h3>
-
-                <p>
-                    A chemistry project focused on designing a smart, utility-driven
-                    multipurpose bag with thoughtful compartments and ergonomic features.
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <img src="arduino-circuit.jpeg" width="100%" style="border-radius:15px; margin-bottom:20px;">
-
-                <h3>Arduino Based Circuit</h3>
-
-                <p>
-                    A physics project featuring an Arduino UNO-based circuit with an
-                    LCD display, push buttons, buzzer and potentiometer for interactive control.
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <img src="bag-full.jpeg" width="100%" style="border-radius:15px; margin-bottom:20px;">
-
-                <h3>Portfolio Website</h3>
-
-                <p>
-                    A modern responsive website that showcases my personality,
-                    achievements and technical skills.
-                </p>
-
-            </div>
-
+        <h2 class="title reveal">My Projects</h2>
+        <div class="sec-divider reveal"></div>
+        <div class="cards reveal">
+            <div class="card"><img src="bag-sketch.jpeg" width="100%" style="border-radius:15px;margin-bottom:20px;"><h3>Smart Utility Multipurpose Bag</h3><p>A chemistry project focused on designing a smart, utility-driven multipurpose bag with thoughtful compartments and ergonomic features.</p></div>
+            <div class="card"><img src="arduino-circuit.jpeg" width="100%" style="border-radius:15px;margin-bottom:20px;"><h3>Arduino Based Circuit</h3><p>A physics project featuring an Arduino UNO-based circuit with an LCD display, push buttons, buzzer and potentiometer for interactive control.</p></div>
+            <div class="card"><img src="bag-full.jpeg" width="100%" style="border-radius:15px;margin-bottom:20px;"><h3>Portfolio Website</h3><p>A modern responsive website that showcases my personality, achievements and technical skills.</p></div>
         </div>
-
     </section>
 
-    <!-- ── College Life Section ── -->
     <section id="college-life" class="gallery-section">
-
-        <div class="gallery-header">
+        <div class="gallery-header reveal">
             <span class="gallery-tag">📸 Memories</span>
             <h2 class="title">College Life</h2>
             <div class="section-divider"></div>
             <p class="gallery-subtitle">Friends, dance, laughter and everything in between ✨</p>
             <span class="photo-count-badge">🎓 12 Moments</span>
         </div>
-
-        <div class="masonry">
-
-            <div class="masonry-item">
-                <img src="college1.jpeg" alt="College friends">
-                <div class="photo-overlay">
-                    <div class="photo-label">With Friends</div>
-                    <div class="photo-label-sub">Best memories</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="college2.jpeg" alt="College moments">
-                <div class="photo-overlay">
-                    <div class="photo-label">College Moments</div>
-                    <div class="photo-label-sub">Always together</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="college3.jpeg" alt="College life">
-                <div class="photo-overlay">
-                    <div class="photo-label">Good Times</div>
-                    <div class="photo-label-sub">Cherished forever</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="college4.jpeg" alt="Friends">
-                <div class="photo-overlay">
-                    <div class="photo-label">Squad Goals</div>
-                    <div class="photo-label-sub">Our gang</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="college5.jpeg" alt="College friends">
-                <div class="photo-overlay">
-                    <div class="photo-label">Best Memories</div>
-                    <div class="photo-label-sub">Candid moments</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="college6.jpeg" alt="College moments">
-                <div class="photo-overlay">
-                    <div class="photo-label">Always Together</div>
-                    <div class="photo-label-sub">Ride or die</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="college7.jpeg" alt="College life">
-                <div class="photo-overlay">
-                    <div class="photo-label">Candid Moments</div>
-                    <div class="photo-label-sub">Unfiltered joy</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="college8.jpeg" alt="Friends">
-                <div class="photo-overlay">
-                    <div class="photo-label">Our Gang</div>
-                    <div class="photo-label-sub">Forever friends</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="college9.jpeg" alt="College friends">
-                <div class="photo-overlay">
-                    <div class="photo-label">Cherished Memories</div>
-                    <div class="photo-label-sub">Timeless moments</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="dance1.jpeg" alt="PCCOE Championship">
-                <div class="photo-overlay">
-                    <div class="photo-label">PCCOE Championship 🏆</div>
-                    <div class="photo-label-sub">Dance competition</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="dance2.jpeg" alt="PCCOE Championship">
-                <div class="photo-overlay">
-                    <div class="photo-label">On Stage 💃</div>
-                    <div class="photo-label-sub">PCCOE Championship</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="dance3.jpeg" alt="PCCOE Championship">
-                <div class="photo-overlay">
-                    <div class="photo-label">Dance Performance 🎭</div>
-                    <div class="photo-label-sub">PCCOE Championship</div>
-                </div>
-            </div>
-
+        <div class="masonry reveal">
+            <div class="masonry-item"><img src="college1.jpeg" alt="College friends"><div class="photo-overlay"><div class="photo-label">With Friends</div><div class="photo-label-sub">Best memories</div></div></div>
+            <div class="masonry-item"><img src="college2.jpeg" alt="College moments"><div class="photo-overlay"><div class="photo-label">College Moments</div><div class="photo-label-sub">Always together</div></div></div>
+            <div class="masonry-item"><img src="college3.jpeg" alt="College life"><div class="photo-overlay"><div class="photo-label">Good Times</div><div class="photo-label-sub">Cherished forever</div></div></div>
+            <div class="masonry-item"><img src="college4.jpeg" alt="Friends"><div class="photo-overlay"><div class="photo-label">Squad Goals</div><div class="photo-label-sub">Our gang</div></div></div>
+            <div class="masonry-item"><img src="college5.jpeg" alt="College friends"><div class="photo-overlay"><div class="photo-label">Best Memories</div><div class="photo-label-sub">Candid moments</div></div></div>
+            <div class="masonry-item"><img src="college6.jpeg" alt="College moments"><div class="photo-overlay"><div class="photo-label">Always Together</div><div class="photo-label-sub">Ride or die</div></div></div>
+            <div class="masonry-item"><img src="college7.jpeg" alt="College life"><div class="photo-overlay"><div class="photo-label">Candid Moments</div><div class="photo-label-sub">Unfiltered joy</div></div></div>
+            <div class="masonry-item"><img src="college8.jpeg" alt="Friends"><div class="photo-overlay"><div class="photo-label">Our Gang</div><div class="photo-label-sub">Forever friends</div></div></div>
+            <div class="masonry-item"><img src="college9.jpeg" alt="College friends"><div class="photo-overlay"><div class="photo-label">Cherished Memories</div><div class="photo-label-sub">Timeless moments</div></div></div>
+            <div class="masonry-item"><img src="dance1.jpeg" alt="PCCOE Championship"><div class="photo-overlay"><div class="photo-label">PCCOE Championship 🏆</div><div class="photo-label-sub">Dance competition</div></div></div>
+            <div class="masonry-item"><img src="dance2.jpeg" alt="PCCOE Championship"><div class="photo-overlay"><div class="photo-label">On Stage 💃</div><div class="photo-label-sub">PCCOE Championship</div></div></div>
+            <div class="masonry-item"><img src="dance3.jpeg" alt="PCCOE Championship"><div class="photo-overlay"><div class="photo-label">Dance Performance 🎭</div><div class="photo-label-sub">PCCOE Championship</div></div></div>
         </div>
-
     </section>
 
-    <!-- ── Travel Diaries Section ── -->
     <section id="travel-diaries" class="gallery-section">
-
-        <div class="gallery-header">
+        <div class="gallery-header reveal">
             <span class="gallery-tag" style="background:rgba(129,140,248,0.12);color:#818cf8;border-color:rgba(129,140,248,0.3);">🌍 Travels</span>
             <h2 class="title">My Travel Diaries</h2>
             <div class="section-divider" style="background:linear-gradient(90deg,#818cf8,#38bdf8);"></div>
             <p class="gallery-subtitle">Exploring the world one place at a time 🗺️</p>
             <span class="photo-count-badge">✈️ 16 Adventures</span>
         </div>
-
-        <div class="masonry">
-
-            <div class="masonry-item">
-                <img src="travel1.jpeg" alt="Travel photo">
-                <div class="photo-overlay">
-                    <div class="photo-label">Adventures Await</div>
-                    <div class="photo-label-sub">New beginnings</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="travel2.jpeg" alt="Travel photo">
-                <div class="photo-overlay">
-                    <div class="photo-label">New Horizons</div>
-                    <div class="photo-label-sub">Beyond boundaries</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="travel3.jpeg" alt="Travel photo">
-                <div class="photo-overlay">
-                    <div class="photo-label">Wanderlust</div>
-                    <div class="photo-label-sub">Always moving</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="travel4.jpeg" alt="Travel photo">
-                <div class="photo-overlay">
-                    <div class="photo-label">Explore More</div>
-                    <div class="photo-label-sub">The world is vast</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="travel5.jpeg" alt="Travel photo">
-                <div class="photo-overlay">
-                    <div class="photo-label">Far Away Places</div>
-                    <div class="photo-label-sub">Distance is nothing</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="travel6.jpeg" alt="Travel photo">
-                <div class="photo-overlay">
-                    <div class="photo-label">Beautiful World</div>
-                    <div class="photo-label-sub">Nature's canvas</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="travel7.jpeg" alt="Travel photo">
-                <div class="photo-overlay">
-                    <div class="photo-label">Hidden Gems</div>
-                    <div class="photo-label-sub">Off the beaten path</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="travel8.jpeg" alt="Travel photo">
-                <div class="photo-overlay">
-                    <div class="photo-label">On The Road</div>
-                    <div class="photo-label-sub">Every road tells a story</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="travel9.jpeg" alt="Travel photo">
-                <div class="photo-overlay">
-                    <div class="photo-label">Golden Moments</div>
-                    <div class="photo-label-sub">Memories in the making</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="travel10.jpeg" alt="Travel photo">
-                <div class="photo-overlay">
-                    <div class="photo-label">Scenic Views</div>
-                    <div class="photo-label-sub">Worth every mile</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="travel11.jpeg" alt="Travel photo">
-                <div class="photo-overlay">
-                    <div class="photo-label">Into The Wild</div>
-                    <div class="photo-label-sub">Nature calls</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="travel12.jpeg" alt="Travel photo">
-                <div class="photo-overlay">
-                    <div class="photo-label">Sunrise Stories</div>
-                    <div class="photo-label-sub">Every dawn is new</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="travel13.jpeg" alt="Travel photo">
-                <div class="photo-overlay">
-                    <div class="photo-label">Chasing Sunsets</div>
-                    <div class="photo-label-sub">Golden hour magic</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="travel14.jpeg" alt="Travel photo">
-                <div class="photo-overlay">
-                    <div class="photo-label">Unexplored Paths</div>
-                    <div class="photo-label-sub">Dare to discover</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="travel15.jpeg" alt="Travel photo">
-                <div class="photo-overlay">
-                    <div class="photo-label">Memories Made</div>
-                    <div class="photo-label-sub">Lived, loved, explored</div>
-                </div>
-            </div>
-
-            <div class="masonry-item">
-                <img src="travel16.jpeg" alt="Travel photo">
-                <div class="photo-overlay">
-                    <div class="photo-label">Until Next Time</div>
-                    <div class="photo-label-sub">The journey never ends</div>
-                </div>
-            </div>
-
+        <div class="masonry reveal">
+            <div class="masonry-item"><img src="travel1.jpeg" alt="Travel"><div class="photo-overlay"><div class="photo-label">Adventures Await</div><div class="photo-label-sub">New beginnings</div></div></div>
+            <div class="masonry-item"><img src="travel2.jpeg" alt="Travel"><div class="photo-overlay"><div class="photo-label">New Horizons</div><div class="photo-label-sub">Beyond boundaries</div></div></div>
+            <div class="masonry-item"><img src="travel3.jpeg" alt="Travel"><div class="photo-overlay"><div class="photo-label">Wanderlust</div><div class="photo-label-sub">Always moving</div></div></div>
+            <div class="masonry-item"><img src="travel4.jpeg" alt="Travel"><div class="photo-overlay"><div class="photo-label">Explore More</div><div class="photo-label-sub">The world is vast</div></div></div>
+            <div class="masonry-item"><img src="travel5.jpeg" alt="Travel"><div class="photo-overlay"><div class="photo-label">Far Away Places</div><div class="photo-label-sub">Distance is nothing</div></div></div>
+            <div class="masonry-item"><img src="travel6.jpeg" alt="Travel"><div class="photo-overlay"><div class="photo-label">Beautiful World</div><div class="photo-label-sub">Nature's canvas</div></div></div>
+            <div class="masonry-item"><img src="travel7.jpeg" alt="Travel"><div class="photo-overlay"><div class="photo-label">Hidden Gems</div><div class="photo-label-sub">Off the beaten path</div></div></div>
+            <div class="masonry-item"><img src="travel8.jpeg" alt="Travel"><div class="photo-overlay"><div class="photo-label">On The Road</div><div class="photo-label-sub">Every road tells a story</div></div></div>
+            <div class="masonry-item"><img src="travel9.jpeg" alt="Travel"><div class="photo-overlay"><div class="photo-label">Golden Moments</div><div class="photo-label-sub">Memories in the making</div></div></div>
+            <div class="masonry-item"><img src="travel10.jpeg" alt="Travel"><div class="photo-overlay"><div class="photo-label">Scenic Views</div><div class="photo-label-sub">Worth every mile</div></div></div>
+            <div class="masonry-item"><img src="travel11.jpeg" alt="Travel"><div class="photo-overlay"><div class="photo-label">Into The Wild</div><div class="photo-label-sub">Nature calls</div></div></div>
+            <div class="masonry-item"><img src="travel12.jpeg" alt="Travel"><div class="photo-overlay"><div class="photo-label">Sunrise Stories</div><div class="photo-label-sub">Every dawn is new</div></div></div>
+            <div class="masonry-item"><img src="travel13.jpeg" alt="Travel"><div class="photo-overlay"><div class="photo-label">Chasing Sunsets</div><div class="photo-label-sub">Golden hour magic</div></div></div>
+            <div class="masonry-item"><img src="travel14.jpeg" alt="Travel"><div class="photo-overlay"><div class="photo-label">Unexplored Paths</div><div class="photo-label-sub">Dare to discover</div></div></div>
+            <div class="masonry-item"><img src="travel15.jpeg" alt="Travel"><div class="photo-overlay"><div class="photo-label">Memories Made</div><div class="photo-label-sub">Lived, loved, explored</div></div></div>
+            <div class="masonry-item"><img src="travel16.jpeg" alt="Travel"><div class="photo-overlay"><div class="photo-label">Until Next Time</div><div class="photo-label-sub">The journey never ends</div></div></div>
         </div>
-
     </section>
 
-    </section>
-
-    <!-- ── Certificates Section ── -->
     <section id="certificates">
-
-        <h2 class="title">Certificates</h2>
-
-        <div class="cert-grid">
-
+        <h2 class="title reveal">Certificates</h2>
+        <div class="sec-divider reveal"></div>
+        <div class="cert-grid reveal">
             <div class="cert-card">
-
-                <div class="cert-issuer">
-                    <div class="cert-issuer-logo">U</div>
-                    <span class="cert-issuer-name">Udemy</span>
-                </div>
-
+                <div class="cert-issuer"><div class="cert-issuer-logo">U</div><span class="cert-issuer-name">Udemy</span></div>
                 <span class="cert-badge">Certificate of Completion</span>
-
                 <div class="cert-title">The Complete Full-Stack Web Development Bootcamp</div>
-
                 <div class="cert-meta">
-                    <div class="cert-meta-item">
-                        <span class="cert-meta-label">Instructor</span>
-                        <span class="cert-meta-value">Dr. Angela Yu</span>
-                    </div>
-                    <div class="cert-meta-item">
-                        <span class="cert-meta-label">Date</span>
-                        <span class="cert-meta-value">March 8, 2026</span>
-                    </div>
-                    <div class="cert-meta-item">
-                        <span class="cert-meta-label">Duration</span>
-                        <span class="cert-meta-value">62 Hours</span>
-                    </div>
+                    <div class="cert-meta-item"><span class="cert-meta-label">Instructor</span><span class="cert-meta-value">Dr. Angela Yu</span></div>
+                    <div class="cert-meta-item"><span class="cert-meta-label">Date</span><span class="cert-meta-value">March 8, 2026</span></div>
+                    <div class="cert-meta-item"><span class="cert-meta-label">Duration</span><span class="cert-meta-value">62 Hours</span></div>
                 </div>
-
-                <a class="cert-link" href="https://ude.my/UC-764249a2-7a3d-45bb-9fcd-18d8fbcc56c2" target="_blank">
-                    View Certificate
-                    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </a>
-
+                <a class="cert-link" href="https://ude.my/UC-764249a2-7a3d-45bb-9fcd-18d8fbcc56c2" target="_blank">View Certificate <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
             </div>
-
             <div class="cert-card">
-
-                <div class="cert-issuer">
-                    <div class="cert-issuer-logo" style="color:#c2410c;">C</div>
-                    <span class="cert-issuer-name">College Pe Charcha</span>
-                </div>
-
+                <div class="cert-issuer"><div class="cert-issuer-logo" style="color:#c2410c;">C</div><span class="cert-issuer-name">College Pe Charcha</span></div>
                 <span class="cert-badge">Appreciation Letter</span>
-
                 <div class="cert-title">Vision to Visionaries — Speaker Session</div>
-
                 <div class="cert-meta">
-                    <div class="cert-meta-item">
-                        <span class="cert-meta-label">Issued by</span>
-                        <span class="cert-meta-value">Team TechzDADA</span>
-                    </div>
-                    <div class="cert-meta-item">
-                        <span class="cert-meta-label">Role</span>
-                        <span class="cert-meta-value">Session Conductor</span>
-                    </div>
+                    <div class="cert-meta-item"><span class="cert-meta-label">Issued by</span><span class="cert-meta-value">Team TechzDADA</span></div>
+                    <div class="cert-meta-item"><span class="cert-meta-label">Role</span><span class="cert-meta-value">Session Conductor</span></div>
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
-    <footer>
-        © 2026 Aadya Bawaskar | Portfolio Website
-    </footer>
+    <section id="contact">
+        <h2 class="title reveal">Get In Touch</h2>
+        <div class="sec-divider reveal"></div>
+        <p class="sec-subtitle reveal">Feel free to reach out! 💌</p>
+        <div class="contact-grid reveal">
+            <div class="contact-card"><span class="contact-icon">📧</span><h3>Email</h3><a href="mailto:aadyabawaskar@gmail.com">aadyabawaskar@gmail.com</a></div>
+            <div class="contact-card"><span class="contact-icon">💼</span><h3>LinkedIn</h3><a href="#" target="_blank">Aadya Bawaskar</a></div>
+            <div class="contact-card"><span class="contact-icon">🐙</span><h3>GitHub</h3><a href="https://github.com/aadyabawaskar25-tech" target="_blank">aadyabawaskar25-tech</a></div>
+            <div class="contact-card"><span class="contact-icon">🎵</span><h3>Spotify</h3><a href="#" target="_blank">My Playlist</a></div>
+        </div>
+    </section>
+
+    <footer>© 2026 Aadya Bawaskar | Portfolio Website ✨</footer>
+
+    <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+    <script>
+        const phrases=["Computer Engineering Student 👩‍💻","Bharatnatyam Dancer 💃","Passionate Reader 📚","Creative Thinker 🎨","Aspiring Developer 🚀"];
+        let pi=0,ci=0,del=false;
+        const el=document.getElementById('typing');
+        function type(){
+            const cur=phrases[pi];
+            if(!del){el.textContent=cur.substring(0,ci+1);ci++;if(ci===cur.length){del=true;setTimeout(type,1800);return;}}
+            else{el.textContent=cur.substring(0,ci-1);ci--;if(ci===0){del=false;pi=(pi+1)%phrases.length;}}
+            setTimeout(type,del?60:100);
+        }
+        type();
+
+        const themeBtn=document.querySelector('.theme-btn');
+        function toggleTheme(){
+            document.body.classList.toggle('light');
+            themeBtn.textContent=document.body.classList.contains('light')?'🌙 Dark':'☀️ Light';
+        }
+
+        const observer=new IntersectionObserver((entries)=>{
+            entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+        },{threshold:0.1});
+        document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+        const skillObs=new IntersectionObserver((entries)=>{
+            entries.forEach(e=>{
+                if(e.isIntersecting){
+                    e.target.querySelectorAll('.skill-fill').forEach(bar=>{bar.style.width=bar.dataset.width+'%';});
+                }
+            });
+        },{threshold:0.3});
+        document.querySelectorAll('.skills-grid').forEach(el=>skillObs.observe(el));
+
+        const topBtn=document.getElementById('back-top');
+        window.addEventListener('scroll',()=>{topBtn.classList.toggle('show',window.scrollY>400);});
+    </script>
 
 </body>
-
 </html>
