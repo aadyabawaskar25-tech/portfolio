@@ -104,9 +104,10 @@
         /* Certificates */
         #certificates{background:var(--bg);}
         .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;justify-items:center;}
-        .cert-card{background:var(--bg3);border-radius:20px;padding:30px;max-width:480px;width:100%;transition:0.3s;border:1px solid #334155;position:relative;overflow:hidden;}
-        .cert-card::before{content:'';position:absolute;top:0;left:0;width:5px;height:100%;background:linear-gradient(180deg,var(--accent),var(--accent2));border-radius:5px 0 0 5px;}
-        .cert-card:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:0 20px 40px rgba(56,189,248,0.15);}
+        .cert-card{background:var(--bg3);border-radius:20px;padding:30px 30px 30px 35px;max-width:480px;width:100%;transition:0.3s;border:1px solid #334155;position:relative;overflow:visible;box-shadow:inset 4px 0 0 var(--accent);}
+        .cert-card:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:inset 4px 0 0 var(--accent2),0 20px 40px rgba(56,189,248,0.15);}
+        .cert-link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;color:var(--accent);font-size:14px;font-weight:700;text-decoration:none;transition:gap 0.2s;cursor:pointer;padding:8px 16px;background:rgba(56,189,248,0.1);border-radius:20px;border:1px solid rgba(56,189,248,0.3);}
+        .cert-link:hover{gap:10px;background:rgba(56,189,248,0.2);}
         .cert-issuer{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
         .cert-issuer-logo{width:38px;height:38px;background:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#a435f0;flex-shrink:0;}
         .cert-issuer-name{font-size:14px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:1px;}
@@ -116,8 +117,6 @@
         .cert-meta-item{display:flex;flex-direction:column;gap:3px;}
         .cert-meta-label{font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:0.8px;}
         .cert-meta-value{font-size:14px;color:var(--text2);font-weight:600;}
-        .cert-link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;color:var(--accent);font-size:13px;font-weight:600;text-decoration:none;transition:gap 0.2s;position:relative;z-index:10;}
-        .cert-link:hover{gap:10px;}
         .cert-link svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
 
         /* Contact */
