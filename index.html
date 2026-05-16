@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aadya Bawaskar | Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
     <style>
         :root{--bg:#0f172a;--bg2:#111827;--bg3:#1e293b;--text:#ffffff;--text2:#cbd5e1;--text3:#94a3b8;--accent:#38bdf8;--accent2:#818cf8;}
         body.light{--bg:#f0f9ff;--bg2:#e0f2fe;--bg3:#bae6fd;--text:#0f172a;--text2:#1e293b;--text3:#475569;--accent:#0284c7;--accent2:#6366f1;}
         *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;scroll-behavior:smooth;}
         body{background:var(--bg);color:var(--text);transition:background 0.4s,color 0.4s;}
         nav{width:100%;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;background:var(--bg2);position:fixed;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,0.3);}
-        nav h1{color:var(--accent);font-size:22px;}
+        nav h1{color:var(--accent);font-size:22px;cursor:pointer;}
         nav ul{display:flex;list-style:none;gap:18px;align-items:center;flex-wrap:wrap;}
         nav ul li a{color:var(--text);text-decoration:none;font-size:14px;transition:color 0.3s;}
         nav ul li a:hover{color:var(--accent);}
@@ -22,8 +24,9 @@
         @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
         .hero h2{font-size:54px;margin-bottom:20px;}
         .hero h2 span{color:var(--accent);}
-        .typing-text{color:var(--accent2);font-size:22px;margin-bottom:16px;min-height:32px;}
-        .hero p{max-width:700px;font-size:18px;line-height:1.8;color:var(--text2);}
+        .typing-text{color:var(--accent2);font-size:22px;margin-bottom:10px;min-height:32px;}
+        .hero-college{color:var(--text3);font-size:15px;margin-bottom:18px;letter-spacing:0.5px;}
+        .hero p{max-width:720px;font-size:17px;line-height:1.9;color:var(--text2);}
         .btn{margin-top:30px;padding:14px 35px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;border-radius:40px;font-size:17px;cursor:pointer;transition:0.3s;color:#fff;font-weight:700;}
         .btn:hover{transform:scale(1.05);box-shadow:0 10px 30px rgba(56,189,248,0.4);}
         section{padding:90px 10%;}
@@ -35,6 +38,11 @@
         .card:hover{transform:translateY(-10px);border-color:var(--accent);box-shadow:0 20px 40px rgba(56,189,248,0.1);}
         .card h3{margin-bottom:12px;color:var(--accent);font-size:20px;}
         .card p{color:var(--text2);line-height:1.7;}
+
+        /* About Me paragraph */
+        .about-para{max-width:800px;margin:0 auto 50px;font-size:17px;line-height:1.9;color:var(--text2);text-align:center;background:var(--bg3);padding:35px 40px;border-radius:20px;border-left:4px solid var(--accent);border-right:4px solid var(--accent2);}
+
+        /* Skills */
         #skills{background:var(--bg2);}
         .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;}
         .skill-card{background:var(--bg3);border-radius:18px;padding:28px;border:1px solid transparent;transition:0.3s;}
@@ -46,6 +54,8 @@
         .skill-bar{height:10px;background:rgba(56,189,248,0.15);border-radius:10px;overflow:hidden;}
         .skill-fill{height:100%;border-radius:10px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 1.2s cubic-bezier(0.25,0.46,0.45,0.94);}
         .skill-desc{margin-top:10px;font-size:13px;color:var(--text3);}
+
+        /* Hobbies */
         #hobbies{background:var(--bg);}
         .hobbies-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;}
         .hobby-card{background:var(--bg3);border-radius:20px;padding:30px;border:1px solid transparent;transition:0.4s;position:relative;overflow:hidden;}
@@ -56,6 +66,10 @@
         .hobby-card p{color:var(--text2);line-height:1.7;font-size:15px;}
         .hobby-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
         .hobby-tag{background:rgba(56,189,248,0.1);color:var(--accent);font-size:12px;padding:4px 12px;border-radius:20px;border:1px solid rgba(56,189,248,0.25);font-weight:600;}
+        .hobby-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;color:var(--accent2);font-size:13px;font-weight:600;text-decoration:none;}
+        .hobby-link:hover{text-decoration:underline;}
+
+        /* Goals */
         #goals{background:var(--bg2);}
         .goals-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
         .goal-card{background:var(--bg3);border-radius:20px;padding:30px;border:1px solid transparent;transition:0.3s;display:flex;gap:18px;align-items:flex-start;}
@@ -63,6 +77,8 @@
         .goal-num{min-width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;flex-shrink:0;}
         .goal-content h3{color:var(--accent);font-size:17px;margin-bottom:8px;}
         .goal-content p{color:var(--text2);font-size:14px;line-height:1.7;}
+
+        /* Gallery */
         .gallery-section{padding:90px 10%;}
         .gallery-header{text-align:center;margin-bottom:50px;}
         .gallery-header .title{margin-bottom:10px;}
@@ -84,6 +100,8 @@
         #travel-diaries{background:linear-gradient(180deg,#0c1a2e 0%,var(--bg) 100%);}
         .section-divider{width:60px;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;margin:16px auto 0;}
         .photo-count-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(129,140,248,0.12);color:var(--accent2);font-size:12px;font-weight:700;padding:5px 14px;border-radius:30px;border:1px solid rgba(129,140,248,0.25);margin-top:14px;}
+
+        /* Certificates */
         #certificates{background:var(--bg);}
         .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;justify-items:center;}
         .cert-card{background:var(--bg3);border-radius:20px;padding:30px;max-width:480px;width:100%;transition:0.3s;border:1px solid #334155;position:relative;overflow:hidden;}
@@ -101,21 +119,24 @@
         .cert-link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;color:var(--accent);font-size:13px;font-weight:600;text-decoration:none;transition:gap 0.2s;}
         .cert-link:hover{gap:10px;}
         .cert-link svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+
+        /* Contact */
         #contact{background:var(--bg2);}
         .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:900px;margin:0 auto;}
-        .contact-card{background:var(--bg3);border-radius:18px;padding:28px;text-align:center;border:1px solid transparent;transition:0.3s;}
-        .contact-card:hover{border-color:var(--accent);transform:translateY(-6px);}
+        .contact-card{background:var(--bg3);border-radius:18px;padding:28px;text-align:center;border:1px solid transparent;transition:0.3s;text-decoration:none;display:block;}
+        .contact-card:hover{border-color:var(--accent);transform:translateY(-6px);box-shadow:0 15px 35px rgba(56,189,248,0.1);}
         .contact-icon{font-size:36px;margin-bottom:12px;display:block;}
         .contact-card h3{color:var(--accent);font-size:16px;margin-bottom:6px;}
-        .contact-card a{color:var(--text2);text-decoration:none;font-size:14px;}
-        .contact-card a:hover{color:var(--accent);}
+        .contact-card p{color:var(--text2);font-size:13px;word-break:break-all;}
+
+        /* Scroll + Back to top */
         .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.7s ease,transform 0.7s ease;}
         .reveal.visible{opacity:1;transform:translateY(0);}
         #back-top{position:fixed;bottom:30px;right:30px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:22px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:opacity 0.3s,transform 0.3s;box-shadow:0 8px 20px rgba(56,189,248,0.4);z-index:999;}
         #back-top.show{opacity:1;transform:translateY(0);}
         #back-top:hover{transform:scale(1.1);}
         footer{text-align:center;padding:30px;background:var(--bg2);color:var(--text3);}
-        @media(max-width:768px){.hero h2{font-size:36px;}.title{font-size:28px;}.masonry{columns:2;}}
+        @media(max-width:768px){.hero h2{font-size:36px;}.title{font-size:28px;}.masonry{columns:2;}.about-para{padding:25px 20px;}}
         @media(max-width:480px){.masonry{columns:1;}nav ul{gap:8px;}nav ul li a{font-size:12px;}}
     </style>
 </head>
@@ -123,7 +144,7 @@
 <body>
 
     <nav>
-        <h1>Portfolio</h1>
+        <h1 onclick="window.scrollTo({top:0,behavior:'smooth'})">Aadya ✨</h1>
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -142,17 +163,21 @@
         <img src="profile.jpg" alt="Aadya Bawaskar">
         <h2>Hello, I'm <span>Aadya Bawaskar</span></h2>
         <div class="typing-text" id="typing"></div>
-        <p>I'm passionate about creativity, technology, leadership, learning new skills and building projects that describe who I am beyond academics.</p>
+        <p class="hero-college">📍 Electronics & Telecommunication Engineering &nbsp;|&nbsp; First Year &nbsp;|&nbsp; PCCOE, Pune</p>
+        <p>I'm someone who learns by diving in headfirst — curious, creative, and always trying to build something meaningful from scratch. Whether it's designing projects, creating portfolios, solving technical problems, or turning ideas into something visually impressive, I put genuine effort into everything I do. Behind the stress and self-doubt is a person who's ambitious, emotionally aware, hardworking, and quietly determined to become the best version of herself.</p>
         <button class="btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Explore My Portfolio</button>
     </div>
 
     <section id="about">
         <h2 class="title reveal">About Me</h2>
         <div class="sec-divider reveal"></div>
+        <div class="about-para reveal">
+            I'm Aadya Bawaskar, a First Year Electronics & Telecommunication Engineering student at PCCOE, Pune. I can be overthinking and chaotic at times, but that's usually because I care deeply about doing things well. I value real connections, small moments, and people who make me feel comfortable being myself. I'm passionate about technology, creativity, and leadership — and I'm on a journey to become the best version of myself, one project at a time.
+        </div>
         <div class="cards reveal">
-            <div class="card"><h3>🎨 Creative</h3><p>I enjoy designing, creating and expressing ideas through projects.</p></div>
-            <div class="card"><h3>🌟 Leadership</h3><p>I actively participate in teamwork, events and communication activities.</p></div>
-            <div class="card"><h3>💻 Technology</h3><p>I love coding, innovation and learning new technologies.</p></div>
+            <div class="card"><h3>🎨 Creative</h3><p>I enjoy designing, creating and expressing ideas through projects that reflect who I truly am.</p></div>
+            <div class="card"><h3>🌟 Leadership</h3><p>I actively participate in teamwork, events and communication activities that push me to grow.</p></div>
+            <div class="card"><h3>💻 Technology</h3><p>I love coding, innovation and learning new technologies that help me build meaningful things.</p></div>
         </div>
     </section>
 
@@ -205,7 +230,8 @@
                 <span class="hobby-icon">🎵</span>
                 <h3>Listening to Songs</h3>
                 <p>Music is my mood, my motivation and my companion. I have a carefully curated Spotify playlist for every moment.</p>
-                <div class="hobby-tags"><span class="hobby-tag">Spotify</span><span class="hobby-tag">All Genres</span><span class="hobby-tag">Music Lover</span></div>
+                <div class="hobby-tags"><span class="hobby-tag">A.R. Rahman Mix</span><span class="hobby-tag">Spotify</span><span class="hobby-tag">All Genres</span></div>
+                <a class="hobby-link" href="https://open.spotify.com/playlist/37i9dQZF1EIZETgPOhTFks?si=5nf7AviJS5iw0ksf8obV6A" target="_blank">🎧 Listen to my playlist →</a>
             </div>
             <div class="hobby-card">
                 <span class="hobby-icon">🎬</span>
@@ -222,7 +248,7 @@
         <p class="sec-subtitle reveal">Where I'm headed 🚀</p>
         <div class="goals-grid reveal">
             <div class="goal-card"><div class="goal-num">1</div><div class="goal-content"><h3>Master Full-Stack Development</h3><p>Build complete, production-ready web applications using modern technologies and frameworks.</p></div></div>
-            <div class="goal-card"><div class="goal-num">2</div><div class="goal-content"><h3>Pursue Higher Education</h3><p>Pursue a postgraduate degree in Computer Science or a related field from a top institution.</p></div></div>
+            <div class="goal-card"><div class="goal-num">2</div><div class="goal-content"><h3>Pursue Higher Education</h3><p>Pursue a postgraduate degree in Electronics or Computer Science from a top institution.</p></div></div>
             <div class="goal-card"><div class="goal-num">3</div><div class="goal-content"><h3>Build My Own Startup</h3><p>Turn my ideas into a real product that solves problems and creates value for people around me.</p></div></div>
             <div class="goal-card"><div class="goal-num">4</div><div class="goal-content"><h3>Inspire Through Leadership</h3><p>Take on leadership roles, mentor others and contribute meaningfully to my community.</p></div></div>
             <div class="goal-card"><div class="goal-num">5</div><div class="goal-content"><h3>Continue Classical Dance</h3><p>Keep growing as a Bharatnatyam dancer and perform on bigger stages while preserving this art form.</p></div></div>
@@ -236,7 +262,7 @@
         <div class="cards reveal">
             <div class="card"><img src="bag-sketch.jpeg" width="100%" style="border-radius:15px;margin-bottom:20px;"><h3>Smart Utility Multipurpose Bag</h3><p>A chemistry project focused on designing a smart, utility-driven multipurpose bag with thoughtful compartments and ergonomic features.</p></div>
             <div class="card"><img src="arduino-circuit.jpeg" width="100%" style="border-radius:15px;margin-bottom:20px;"><h3>Arduino Based Circuit</h3><p>A physics project featuring an Arduino UNO-based circuit with an LCD display, push buttons, buzzer and potentiometer for interactive control.</p></div>
-            <div class="card"><img src="bag-full.jpeg" width="100%" style="border-radius:15px;margin-bottom:20px;"><h3>Portfolio Website</h3><p>A modern responsive website that showcases my personality, achievements and technical skills.</p></div>
+            <div class="card"><h3>Portfolio Website</h3><p>A modern responsive website built from scratch that showcases my personality, achievements, hobbies and technical skills — the very site you're viewing right now!</p></div>
         </div>
     </section>
 
@@ -324,19 +350,35 @@
         <div class="sec-divider reveal"></div>
         <p class="sec-subtitle reveal">Feel free to reach out! 💌</p>
         <div class="contact-grid reveal">
-            <div class="contact-card"><span class="contact-icon">📧</span><h3>Email</h3><a href="mailto:aadyabawaskar@gmail.com">aadyabawaskar@gmail.com</a></div>
-            <div class="contact-card"><span class="contact-icon">💼</span><h3>LinkedIn</h3><a href="#" target="_blank">Aadya Bawaskar</a></div>
-            <div class="contact-card"><span class="contact-icon">🐙</span><h3>GitHub</h3><a href="https://github.com/aadyabawaskar25-tech" target="_blank">aadyabawaskar25-tech</a></div>
-            <div class="contact-card"><span class="contact-icon">🎵</span><h3>Spotify</h3><a href="#" target="_blank">My Playlist</a></div>
+            <a class="contact-card" href="mailto:aadyabawaskar3@gmail.com">
+                <span class="contact-icon">📧</span>
+                <h3>Email</h3>
+                <p>aadyabawaskar3@gmail.com</p>
+            </a>
+            <a class="contact-card" href="https://www.linkedin.com/in/aadya-bawaskar-87a67429b" target="_blank">
+                <span class="contact-icon">💼</span>
+                <h3>LinkedIn</h3>
+                <p>Aadya Bawaskar</p>
+            </a>
+            <a class="contact-card" href="https://github.com/aadyabawaskar25-tech" target="_blank">
+                <span class="contact-icon">🐙</span>
+                <h3>GitHub</h3>
+                <p>aadyabawaskar25-tech</p>
+            </a>
+            <a class="contact-card" href="https://open.spotify.com/playlist/37i9dQZF1EIZETgPOhTFks?si=5nf7AviJS5iw0ksf8obV6A" target="_blank">
+                <span class="contact-icon">🎵</span>
+                <h3>Spotify</h3>
+                <p>A.R. Rahman Mix</p>
+            </a>
         </div>
     </section>
 
-    <footer>© 2026 Aadya Bawaskar | Portfolio Website ✨</footer>
+    <footer>© 2026 Aadya Bawaskar | ENTC, PCCOE Pune ✨</footer>
 
     <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
     <script>
-        const phrases=["Electronics & Telecom Student 👩‍💻","Bharatnatyam Dancer 💃","Passionate Reader 📚","Creative Thinker 🎨","Aspiring Developer 🚀"];
+        const phrases=["Electronics & Telecom Student 👩‍💻","Bharatnatyam Dancer 💃","Passionate Reader 📚","Creative Thinker 🎨","Aspiring Developer 🚀","PCCOE, Pune 🏛️"];
         let pi=0,ci=0,del=false;
         const el=document.getElementById('typing');
         function type(){
