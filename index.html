@@ -137,6 +137,143 @@
             line-height:1.7;
         }
 
+        /* ── Masonry Gallery ── */
+        .gallery-section{
+            padding: 100px 10%;
+        }
+
+        .gallery-header{
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .gallery-header .title{
+            margin-bottom: 10px;
+        }
+
+        .gallery-tag{
+            display: inline-block;
+            background: rgba(56,189,248,0.12);
+            color: #38bdf8;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 6px 18px;
+            border-radius: 30px;
+            border: 1px solid rgba(56,189,248,0.3);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .gallery-subtitle{
+            color: #94a3b8;
+            font-size: 17px;
+            margin-top: 8px;
+        }
+
+        .masonry{
+            columns: 3;
+            column-gap: 16px;
+        }
+
+        .masonry-item{
+            break-inside: avoid;
+            margin-bottom: 16px;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .masonry-item:nth-child(3n+1){ transform: rotate(0.3deg); }
+        .masonry-item:nth-child(3n+2){ transform: rotate(-0.3deg); }
+        .masonry-item:nth-child(3n+3){ transform: rotate(0.2deg); }
+
+        .masonry-item img{
+            width: 100%;
+            display: block;
+            border-radius: 18px;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .masonry-item:hover{
+            transform: rotate(0deg) scale(1.02) !important;
+            z-index: 10;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        .masonry-item:hover img{
+            transform: scale(1.08);
+        }
+
+        .photo-overlay{
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.1) 50%, transparent 100%);
+            border-radius: 18px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 18px;
+        }
+
+        .masonry-item:hover .photo-overlay{
+            opacity: 1;
+        }
+
+        .photo-label{
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .photo-label-sub{
+            color: #94a3b8;
+            font-size: 12px;
+            margin-top: 3px;
+        }
+
+        #college-life{
+            background: linear-gradient(180deg, #0f172a 0%, #1a1033 100%);
+        }
+
+        #travel-diaries{
+            background: linear-gradient(180deg, #0c1a2e 0%, #0f172a 100%);
+        }
+
+        .section-divider{
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            border-radius: 2px;
+            margin: 16px auto 0;
+        }
+
+        .photo-count-badge{
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(129,140,248,0.12);
+            color: #818cf8;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 30px;
+            border: 1px solid rgba(129,140,248,0.25);
+            margin-top: 14px;
+        }
+
+        @media(max-width: 768px){
+            .masonry{ columns: 2; }
+        }
+
+        @media(max-width: 480px){
+            .masonry{ columns: 1; }
+        }
+
         /* ── Certificates Section ── */
         #certificates{
             background:#0f172a;
@@ -302,6 +439,8 @@
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#college-life">College Life</a></li>
+            <li><a href="#travel-diaries">Travel Diaries</a></li>
             <li><a href="#certificates">Certificates</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
@@ -406,6 +545,266 @@
             </div>
 
         </div>
+
+    </section>
+
+    <!-- ── College Life Section ── -->
+    <section id="college-life" class="gallery-section">
+
+        <div class="gallery-header">
+            <span class="gallery-tag">📸 Memories</span>
+            <h2 class="title">College Life</h2>
+            <div class="section-divider"></div>
+            <p class="gallery-subtitle">Friends, dance, laughter and everything in between ✨</p>
+            <span class="photo-count-badge">🎓 12 Moments</span>
+        </div>
+
+        <div class="masonry">
+
+            <div class="masonry-item">
+                <img src="college1.jpeg" alt="College friends">
+                <div class="photo-overlay">
+                    <div class="photo-label">With Friends</div>
+                    <div class="photo-label-sub">Best memories</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="college2.jpeg" alt="College moments">
+                <div class="photo-overlay">
+                    <div class="photo-label">College Moments</div>
+                    <div class="photo-label-sub">Always together</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="college3.jpeg" alt="College life">
+                <div class="photo-overlay">
+                    <div class="photo-label">Good Times</div>
+                    <div class="photo-label-sub">Cherished forever</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="college4.jpeg" alt="Friends">
+                <div class="photo-overlay">
+                    <div class="photo-label">Squad Goals</div>
+                    <div class="photo-label-sub">Our gang</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="college5.jpeg" alt="College friends">
+                <div class="photo-overlay">
+                    <div class="photo-label">Best Memories</div>
+                    <div class="photo-label-sub">Candid moments</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="college6.jpeg" alt="College moments">
+                <div class="photo-overlay">
+                    <div class="photo-label">Always Together</div>
+                    <div class="photo-label-sub">Ride or die</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="college7.jpeg" alt="College life">
+                <div class="photo-overlay">
+                    <div class="photo-label">Candid Moments</div>
+                    <div class="photo-label-sub">Unfiltered joy</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="college8.jpeg" alt="Friends">
+                <div class="photo-overlay">
+                    <div class="photo-label">Our Gang</div>
+                    <div class="photo-label-sub">Forever friends</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="college9.jpeg" alt="College friends">
+                <div class="photo-overlay">
+                    <div class="photo-label">Cherished Memories</div>
+                    <div class="photo-label-sub">Timeless moments</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="dance1.jpeg" alt="PCCOE Championship">
+                <div class="photo-overlay">
+                    <div class="photo-label">PCCOE Championship 🏆</div>
+                    <div class="photo-label-sub">Dance competition</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="dance2.jpeg" alt="PCCOE Championship">
+                <div class="photo-overlay">
+                    <div class="photo-label">On Stage 💃</div>
+                    <div class="photo-label-sub">PCCOE Championship</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="dance3.jpeg" alt="PCCOE Championship">
+                <div class="photo-overlay">
+                    <div class="photo-label">Dance Performance 🎭</div>
+                    <div class="photo-label-sub">PCCOE Championship</div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ── Travel Diaries Section ── -->
+    <section id="travel-diaries" class="gallery-section">
+
+        <div class="gallery-header">
+            <span class="gallery-tag" style="background:rgba(129,140,248,0.12);color:#818cf8;border-color:rgba(129,140,248,0.3);">🌍 Travels</span>
+            <h2 class="title">My Travel Diaries</h2>
+            <div class="section-divider" style="background:linear-gradient(90deg,#818cf8,#38bdf8);"></div>
+            <p class="gallery-subtitle">Exploring the world one place at a time 🗺️</p>
+            <span class="photo-count-badge">✈️ 16 Adventures</span>
+        </div>
+
+        <div class="masonry">
+
+            <div class="masonry-item">
+                <img src="travel1.jpeg" alt="Travel photo">
+                <div class="photo-overlay">
+                    <div class="photo-label">Adventures Await</div>
+                    <div class="photo-label-sub">New beginnings</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="travel2.jpeg" alt="Travel photo">
+                <div class="photo-overlay">
+                    <div class="photo-label">New Horizons</div>
+                    <div class="photo-label-sub">Beyond boundaries</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="travel3.jpeg" alt="Travel photo">
+                <div class="photo-overlay">
+                    <div class="photo-label">Wanderlust</div>
+                    <div class="photo-label-sub">Always moving</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="travel4.jpeg" alt="Travel photo">
+                <div class="photo-overlay">
+                    <div class="photo-label">Explore More</div>
+                    <div class="photo-label-sub">The world is vast</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="travel5.jpeg" alt="Travel photo">
+                <div class="photo-overlay">
+                    <div class="photo-label">Far Away Places</div>
+                    <div class="photo-label-sub">Distance is nothing</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="travel6.jpeg" alt="Travel photo">
+                <div class="photo-overlay">
+                    <div class="photo-label">Beautiful World</div>
+                    <div class="photo-label-sub">Nature's canvas</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="travel7.jpeg" alt="Travel photo">
+                <div class="photo-overlay">
+                    <div class="photo-label">Hidden Gems</div>
+                    <div class="photo-label-sub">Off the beaten path</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="travel8.jpeg" alt="Travel photo">
+                <div class="photo-overlay">
+                    <div class="photo-label">On The Road</div>
+                    <div class="photo-label-sub">Every road tells a story</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="travel9.jpeg" alt="Travel photo">
+                <div class="photo-overlay">
+                    <div class="photo-label">Golden Moments</div>
+                    <div class="photo-label-sub">Memories in the making</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="travel10.jpeg" alt="Travel photo">
+                <div class="photo-overlay">
+                    <div class="photo-label">Scenic Views</div>
+                    <div class="photo-label-sub">Worth every mile</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="travel11.jpeg" alt="Travel photo">
+                <div class="photo-overlay">
+                    <div class="photo-label">Into The Wild</div>
+                    <div class="photo-label-sub">Nature calls</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="travel12.jpeg" alt="Travel photo">
+                <div class="photo-overlay">
+                    <div class="photo-label">Sunrise Stories</div>
+                    <div class="photo-label-sub">Every dawn is new</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="travel13.jpeg" alt="Travel photo">
+                <div class="photo-overlay">
+                    <div class="photo-label">Chasing Sunsets</div>
+                    <div class="photo-label-sub">Golden hour magic</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="travel14.jpeg" alt="Travel photo">
+                <div class="photo-overlay">
+                    <div class="photo-label">Unexplored Paths</div>
+                    <div class="photo-label-sub">Dare to discover</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="travel15.jpeg" alt="Travel photo">
+                <div class="photo-overlay">
+                    <div class="photo-label">Memories Made</div>
+                    <div class="photo-label-sub">Lived, loved, explored</div>
+                </div>
+            </div>
+
+            <div class="masonry-item">
+                <img src="travel16.jpeg" alt="Travel photo">
+                <div class="photo-overlay">
+                    <div class="photo-label">Until Next Time</div>
+                    <div class="photo-label-sub">The journey never ends</div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
 
     </section>
 
