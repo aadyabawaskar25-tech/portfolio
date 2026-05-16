@@ -116,7 +116,7 @@
         .cert-meta-item{display:flex;flex-direction:column;gap:3px;}
         .cert-meta-label{font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:0.8px;}
         .cert-meta-value{font-size:14px;color:var(--text2);font-weight:600;}
-        .cert-link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;color:var(--accent);font-size:13px;font-weight:600;text-decoration:none;transition:gap 0.2s;}
+        .cert-link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;color:var(--accent);font-size:13px;font-weight:600;text-decoration:none;transition:gap 0.2s;position:relative;z-index:10;}
         .cert-link:hover{gap:10px;}
         .cert-link svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
 
@@ -321,8 +321,8 @@
     <section id="certificates">
         <h2 class="title reveal">Certificates</h2>
         <div class="sec-divider reveal"></div>
-        <div class="cert-grid reveal">
-            <div class="cert-card">
+        <div class="cert-grid">
+            <div class="cert-card reveal">
                 <div class="cert-issuer"><div class="cert-issuer-logo">U</div><span class="cert-issuer-name">Udemy</span></div>
                 <span class="cert-badge">Certificate of Completion</span>
                 <div class="cert-title">The Complete Full-Stack Web Development Bootcamp</div>
@@ -333,7 +333,7 @@
                 </div>
                 <a class="cert-link" href="https://ude.my/UC-764249a2-7a3d-45bb-9fcd-18d8fbcc56c2" target="_blank">View Certificate <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
             </div>
-            <div class="cert-card">
+            <div class="cert-card reveal">
                 <div class="cert-issuer"><div class="cert-issuer-logo" style="color:#c2410c;">C</div><span class="cert-issuer-name">College Pe Charcha</span></div>
                 <span class="cert-badge">Appreciation Letter</span>
                 <div class="cert-title">Vision to Visionaries — Speaker Session</div>
@@ -341,6 +341,7 @@
                     <div class="cert-meta-item"><span class="cert-meta-label">Issued by</span><span class="cert-meta-value">Team TechzDADA</span></div>
                     <div class="cert-meta-item"><span class="cert-meta-label">Role</span><span class="cert-meta-value">Session Conductor</span></div>
                 </div>
+                <a class="cert-link" href="college-pe-charcha.jpeg" target="_blank">View Letter <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
             </div>
         </div>
     </section>
