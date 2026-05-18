@@ -141,7 +141,7 @@
 </head>
 
 <body>
-<div id="scroll-bar"></div>
+
     <nav>
         <h1 onclick="window.scrollTo({top:0,behavior:'smooth'})">Aadya ✨</h1>
         <ul>
@@ -161,9 +161,7 @@
     <div class="hero">
         <img src="profile.jpg" alt="Aadya Bawaskar">
         <h2>Hello, I'm <span>Aadya Bawaskar</span></h2>
-    
-<pclass="typing-tagline">I'm a <span id="typed-text"></span><span class="cursor">|</span></p>
-        
+        <div class="typing-text" id="typing"></div>
         <p class="hero-college">📍 Electronics & Telecommunication Engineering &nbsp;|&nbsp; First Year &nbsp;|&nbsp; PCCOE, Pune</p>
         <p>I'm someone who learns by diving in headfirst — curious, creative, and always trying to build something meaningful from scratch. Whether it's designing projects, creating portfolios, solving technical problems, or turning ideas into something visually impressive, I put genuine effort into everything I do. Behind the stress and self-doubt is a person who's ambitious, emotionally aware, hardworking, and quietly determined to become the best version of herself.</p>
         <button class="btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Explore My Portfolio</button>
@@ -414,82 +412,6 @@
         const topBtn=document.getElementById('back-top');
         window.addEventListener('scroll',()=>{topBtn.classList.toggle('show',window.scrollY>400);});
     </script>
-<script>
-/* --- Typing Animation --- */
-const roles = [
-  "Developer 💻",
-  "Dancer 💃",
-  "Creator 🎨",
-  "Leader 🌟",
-  "Explorer 🌍"
-];
-let roleIndex = 0, charIndex = 0, isDeleting = false;
-const el = document.getElementById("typed-text");
 
-function type() {
-  const current = roles[roleIndex];
-  if (isDeleting) {
-    el.textContent = current.substring(0, charIndex--);
-  } else {
-    el.textContent = current.substring(0, charIndex++);
-  }
-  let speed = isDeleting ? 60 : 100;
-  if (!isDeleting && charIndex === current.length + 1) {
-    speed = 1800; isDeleting = true;
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    roleIndex = (roleIndex + 1) % roles.length;
-    speed = 400;
-  }
-  setTimeout(type, speed);
-}
-type();
-
-/* --- Skill Bars --- */
-const bars = document.querySelectorAll(".skill-bar");
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const bar = entry.target;
-      bar.style.width = bar.dataset.width + "%";
-      observer.unobserve(bar);
-    }
-  });
-}, { threshold: 0.3 });
-bars.forEach(bar => observer.observe(bar));
-
-/* --- Stats Counter --- */
-function animateCounter(el) {
-  const target = +el.dataset.target;
-  const duration = 1500;
-  const step = target / (duration / 16);
-  let current = 0;
-  const timer = setInterval(() => {
-    current += step;
-    if (current >= target) { el.textContent = target; clearInterval(timer); }
-    else { el.textContent = Math.floor(current); }
-  }, 16);
-}
-const statNums = document.querySelectorAll(".stat-num");
-const statsObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCounter(entry.target);
-      statsObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-statNums.forEach(el => statsObserver.observe(el));
-
-/* --- Scroll Progress Bar --- */
-const scrollBar = document.getElementById("scroll-bar");
-window.addEventListener("scroll", () => {
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight
-                    - window.innerHeight;
-  const pct = (scrollTop / docHeight) * 100;
-  scrollBar.style.width = pct + "%";
-});
-</script>
 </body>
 </html>
